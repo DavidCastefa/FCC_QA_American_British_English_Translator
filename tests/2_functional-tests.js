@@ -19,10 +19,10 @@ suite('Functional Tests', () => {
        })
       .end( (err, res) => {
         assert.equal(res.status, 200);
+        console.log("res.body.text: " + res.body.text);
+        console.log("res.body.translation: " + res.body.translation);
         assert.equal(res.body.text, "eggplant");
         assert.equal(res.body.translation, "aubergine");
-        console.log("res.body.text: " + res.body.text)
-        console.log("res.body.translation: " + res.body.translation)
       });
     done();
   });
@@ -81,7 +81,7 @@ suite('Functional Tests', () => {
     done();
   });
 
-  /* test('Translation with text that needs no translation: POST request to /api/translate', (done) => {
+   test('Translation with text that needs no translation: POST request to /api/translate', (done) => {
     chai.request(server)
       .post('/api/translate')
       .send({ 
@@ -93,6 +93,6 @@ suite('Functional Tests', () => {
         assert.equal(res.body.translation, 'Everything looks good to me!');
       });
     done();
-  }); */
+  }); 
 
 });
