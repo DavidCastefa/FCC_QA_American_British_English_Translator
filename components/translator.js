@@ -17,7 +17,7 @@ class Translator {
         // check for time elements
         if ( /^\d+:|.\d\d/.test(textArray[i]) ) {
           console.log(textArray[i]);
-          textArray[i] = textArray[i].replace(/:/g, '.');
+          textArray[i] = textArray[i].replace(/:/, '.');
           console.log("British form: " + textArray[i]);
           change = true;
           continue;  // go back up for the next i
@@ -37,12 +37,45 @@ class Translator {
         });
 
         Object.keys(americanOnly).forEach(word => {
+          // check for single-word expressions
           if (word == plainWord.toLowerCase()) {
             console.log("americanOnly.word:", americanOnly[word]);
             textArray[i] = americanOnly[word] + (punctuation ? punctuation : "");
             console.log("British word:" + textArray[i]);
             change = true;
           }
+          // if it's the final word in text, exit the forEach loop
+          if (i == textArray.length -1 ) return;
+
+          // if not, check for double-word expressions
+          let nextPlainWord = textArray[i+1].match(/[\w-']+|\W+/g)[0];
+          let nextPunctuation = textArray[i+1].match(/[\w-']+|\W+/g)[1];
+          if (word == plainWord.toLowerCase() + ' ' + nextPlainWord.toLowerCase() ) {
+            console.log("americanOnly.word:", americanOnly[word]);
+            textArray[i] = americanOnly[word] + (nextPunctuation ? nextPunctuation : "");
+            console.log("British word:" + textArray[i]);
+            change = true;
+            // Since we've already translated the next word, we need to delete it
+            textArray.splice(i+1, 1);
+          }
+          // if this is now the final word, exit the forEach loop
+          if (i == textArray.length -2 ) return;
+
+          // if not, check for triple-word expressions
+          let thirdPlainWord = textArray[i+2].match(/[\w-']+|\W+/g)[0];
+          let thirdPunctuation = textArray[i+2].match(/[\w-']+|\W+/g)[1];
+          if (word == plainWord.toLowerCase() + ' ' +
+               nextPlainWord.toLowerCase() + ' ' + 
+               thirdPlainWord.toLowerCase()  ) {
+            console.log("americanOnly.word:", americanOnly[word]);
+            textArray[i] = americanOnly[word] + (thirdPunctuation ? thirdPunctuation : "");
+            console.log("British word:" + textArray[i]);
+            change = true;
+            // Since we've already translated the third word, we need to delete it also
+            textArray.splice(i+1, 2);
+          }
+
+
         });
 
         Object.keys(americanToBritishSpelling).forEach(word => {
@@ -61,7 +94,7 @@ class Translator {
         // check for time elements
         if ( /^\d+:|.\d\d/.test(textArray[i]) ) {
           console.log(textArray[i]);
-          textArray[i] = textArray[i].replace(/./g, ':');
+          textArray[i] = textArray[i].replace(/\./, ':');
           console.log("American form: " + textArray[i]);
           change = true;
           continue;  // go back up for the next i
@@ -81,10 +114,44 @@ class Translator {
         });
 
         Object.keys(britishOnly).forEach(word => {
+          // check for single-word expressions
           if (word == plainWord.toLowerCase()) {
             textArray[i] = britishOnly[word] + (punctuation ? punctuation : "");
             console.log("American word:" + textArray[i]);
             change = true;
+          }
+          // if it's the final word in text, exit the forEach loop
+          if (!textArray[i+1]) return;
+
+          // if not, check for double-word expressions
+          let nextPlainWord = textArray[i+1].match(/[\w-']+|\W+/g)[0];
+          let nextPunctuation = textArray[i+1].match(/[\w-']+|\W+/g)[1];
+          if (word == plainWord.toLowerCase() + ' ' + nextPlainWord.toLowerCase() ) {
+            console.log("britishOnly.word:", britishOnly[word]);
+            textArray[i] = britishOnly[word] + (nextPunctuation ? nextPunctuation : "");
+            console.log("British word:" + textArray[i]);
+            change = true;
+            // Since we've already translated the next word, we need to delete it
+            textArray.splice(i+1, 1);
+            console.log(textArray);
+            console.log("i, textArray.length:", i, textArray.length);
+            console.log("i, textArray.length:", i, textArray.length);
+          }
+          // if this is now the final word, exit the forEach loop
+          if (!textArray[i+2]) return;
+
+          // if not, check for triple-word expressions
+          let thirdPlainWord = textArray[i+2].match(/[\w-']+|\W+/g)[0];
+          let thirdPunctuation = textArray[i+2].match(/[\w-']+|\W+/g)[1];
+          if (word == plainWord.toLowerCase() + ' ' +
+                nextPlainWord.toLowerCase() + ' ' + 
+                thirdPlainWord.toLowerCase()  ) {
+            console.log("britishOnly.word:", britishOnly[word]);
+            textArray[i] = britishOnly[word] + (thirdPunctuation ? thirdPunctuation : "");
+            console.log("British word:" + textArray[i]);
+            change = true;
+            // Since we've already translated the third word, we need to delete it also
+            textArray.splice(i+1, 2);
           }
         });
 
