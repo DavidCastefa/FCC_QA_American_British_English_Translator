@@ -19,7 +19,12 @@ module.exports = function (app) {
       // then process the request
       let change = false;
       let translation = translator.translate(req.body.text, req.body.locale, change);
+      console.log("translation.translation: " + translation.translation);
+      console.log("translation.change: " + translation.change);
       if (translation.change == false) res.json({ translation: 'Everything looks good to me!' });
-      return res.json({ translation: translation.translation });
+      return res.json({
+        text: req.body.text,
+        translation: translation.translation 
+      });
     });
 };

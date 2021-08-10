@@ -26,7 +26,7 @@ class Translator {
         // keep hyphenated or apostrophed words together, but separate punctuation
         let plainWord = textArray[i].match(/[\w-']+|\W+/g)[0]; 
         let punctuation = textArray[i].match(/[\w-']+|\W+/g)[1];
-        console.log("plainWord:" + plainWord);
+        console.log("plainWord: " + plainWord);
 
         Object.keys(americanToBritishTitles).forEach(title => {
           if (title == (plainWord + '.').toLowerCase() ) {
@@ -38,7 +38,8 @@ class Translator {
 
         Object.keys(americanOnly).forEach(word => {
           if (word == plainWord.toLowerCase()) {
-            textArray[i] = americanOnly[word] + punctuation ? punctuacion : "";
+            console.log("americanOnly.word:", americanOnly[word]);
+            textArray[i] = americanOnly[word] + (punctuation ? punctuation : "");
             console.log("British word:" + textArray[i]);
             change = true;
           }
@@ -46,8 +47,8 @@ class Translator {
 
         Object.keys(americanToBritishSpelling).forEach(word => {
           if (word == plainWord.toLowerCase()) {
-            textArray[i] = americanToBritishSpelling[word] + punctuation ? punctuacion : "";
-            console.log("British spelling:" + textArray[i]);
+            textArray[i] = americanToBritishSpelling[word] + (punctuation ? punctuation : "");
+            console.log("British spelling: " + textArray[i]);
             change = true;
           }
         });
@@ -81,7 +82,7 @@ class Translator {
 
         Object.keys(britishOnly).forEach(word => {
           if (word == plainWord.toLowerCase()) {
-            textArray[i] = britishOnly[word] + punctuation ? punctuacion : "";
+            textArray[i] = britishOnly[word] + (punctuation ? punctuation : "");
             console.log("American word:" + textArray[i]);
             change = true;
           }
@@ -89,7 +90,7 @@ class Translator {
 
         Object.keys(americanToBritishSpelling).forEach(word => {
           if (americanToBritishSpelling[word] == plainWord.toLowerCase()) {
-            textArray[i] = word + punctuation ? punctuacion : "";
+            textArray[i] = word + (punctuation ? punctuation : "");
             console.log("American spelling:" + textArray[i]);
             change = true;
           }
@@ -99,7 +100,7 @@ class Translator {
     }
 
     let translation = textArray.join(" ");
-    console.log("translation: " + translation);
+    console.log("translator.js translation: " + translation);
     return {translation, change};
   }
 

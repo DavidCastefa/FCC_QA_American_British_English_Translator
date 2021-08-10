@@ -34,7 +34,7 @@ suite('Functional Tests', () => {
         text: "eggplant",
         locale: "american-to-australian"
        })
-      .end(function(err, res){
+      .end( (err, res) => {
         assert.equal(res.status, 200);
         assert.equal(res.body.error, 'Invalid value for locale field');
       });
@@ -85,7 +85,7 @@ suite('Functional Tests', () => {
     chai.request(server)
       .post('/api/translate')
       .send({ 
-        text: "",
+        text: "I am fine.",
         locale: "american-to-british"
        })
       .end(function(err, res){
