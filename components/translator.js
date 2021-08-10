@@ -19,6 +19,7 @@ class Translator {
           console.log(textArray[i]);
           textArray[i] = textArray[i].replace(/:/, '.');
           console.log("British form: " + textArray[i]);
+          textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
           change = true;
           continue;  // go back up for the next i
         };  
@@ -32,6 +33,7 @@ class Translator {
           if (title == (plainWord + '.').toLowerCase() ) {
             textArray[i] = plainWord;
             console.log("British title:" + textArray[i]);
+            textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
             change = true;
           }
         });
@@ -42,6 +44,7 @@ class Translator {
             console.log("americanOnly.word:", americanOnly[word]);
             textArray[i] = americanOnly[word] + (punctuation ? punctuation : "");
             console.log("British word:" + textArray[i]);
+            
             change = true;
           }
           // if it's the final word in text, exit the forEach loop
