@@ -30,7 +30,7 @@ class Translator {
         console.log("plainWord: " + plainWord);
 
         Object.keys(americanToBritishTitles).forEach(title => {
-          if (title == (plainWord + '.').toLowerCase() ) {
+          if (title == (plainWord + '.').toLowerCase() ) { 
             textArray[i] = plainWord;
             console.log("British title:" + textArray[i]);
             textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
@@ -44,7 +44,7 @@ class Translator {
             console.log("americanOnly.word:", americanOnly[word]);
             textArray[i] = americanOnly[word] + (punctuation ? punctuation : "");
             console.log("British word:" + textArray[i]);
-            
+
             change = true;
           }
           // if it's the final word in text, exit the forEach loop
