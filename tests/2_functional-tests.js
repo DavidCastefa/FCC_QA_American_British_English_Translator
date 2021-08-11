@@ -90,9 +90,28 @@ suite('Functional Tests', () => {
        })
       .end(function(err, res){
         assert.equal(res.status, 200);
+        assert.equal(res.body.text, 'I am fine.')
         assert.equal(res.body.translation, 'Everything looks good to me!');
       });
     done();
   }); 
+
+  test('FCC Check: Translation with text that needs no translation: POST request to /api/translate', (done) => {
+    chai.request(server)
+      .post('/api/translate')
+      .send({ 
+        text: "SaintPeter and nhcarrigan give their regards!",
+        locale: "british-to-american"
+       })
+      .end(function(err, res){
+        assert.equal(res.status, 200);
+        console.log("res.body.text: " + res.body.text);
+        console.log("res.body.translation: " + res.body.translation);
+        assert.equal(res.body.text, 'SaintPeter and nhcarrigan give their regards!');
+        assert.equal(res.body.translation, 'Everything looks good to me!');
+      });
+    done();
+  }); 
+
 
 });

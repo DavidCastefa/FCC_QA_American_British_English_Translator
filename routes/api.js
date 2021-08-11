@@ -21,7 +21,10 @@ module.exports = function (app) {
       let translation = translator.translate(req.body.text, req.body.locale, change);
       console.log("translation.translation: " + translation.translation);
       console.log("translation.change: " + translation.change);
-      if (translation.change == false) res.json({ translation: 'Everything looks good to me!' });
+      if (translation.change == false) res.json({
+        text: req.body.text,
+        translation: 'Everything looks good to me!'
+      });
       return res.json({
         text: req.body.text,
         translation: translation.translation 
