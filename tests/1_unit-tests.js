@@ -15,7 +15,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "Mangoes are my favourite fruit.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -27,7 +26,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "I ate yoghurt for breakfast.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -39,7 +37,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "We had a party at my friend's flat.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -51,7 +48,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "Can you toss this in the bin for me?";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -63,7 +59,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "The car park was full.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -75,7 +70,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "Like a high tech Heath Robinson device.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -87,7 +81,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "To bunk off means to skip class or work.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -99,7 +92,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "No Mr Bond, I expect you to die.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -111,7 +103,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "Dr Grosh will see you now.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -123,7 +114,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "Lunch is at 12.15 today.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -139,7 +129,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "We watched the soccer match for a while.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -151,7 +140,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "Tylenol takes up to an hour to work.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -163,7 +151,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "First, caramelize the onions.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -175,7 +162,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "I spent the public holiday at the carnival.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -187,7 +173,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "I had a cookie then went to the fish-and-chip shop.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -199,7 +184,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "I've just got odds and ends in my fanny pack.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -211,7 +195,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "The swap meet at Boxted Airfield was called off.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -223,7 +206,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "Have you met Mrs. Kalyani?";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -235,7 +217,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "Prof. Joyner of King's College, London.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -247,7 +228,6 @@ suite('Unit Tests', () => {
       let goodTranslation = "Tea time is usually around 4 or 4:30.";
       let testResult = translator.translate(text, locale, change).translation;
       testResult = testResult.replace(/<span class="highlight">|<\/span>/g, "");
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -263,7 +243,6 @@ suite('Unit Tests', () => {
       let change = false 
       let goodTranslation = 'Mangoes are my <span class="highlight">favourite</span> fruit.';
       let testResult = translator.translate(text, locale, change).translation;
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -274,7 +253,6 @@ suite('Unit Tests', () => {
       let change = false 
       let goodTranslation = 'I ate <span class="highlight">yoghurt</span> for breakfast.';
       let testResult = translator.translate(text, locale, change).translation;
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -285,7 +263,6 @@ suite('Unit Tests', () => {
       let change = false 
       let goodTranslation = 'We watched the <span class="highlight">soccer</span> match for a while.';
       let testResult = translator.translate(text, locale, change).translation;
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });
@@ -296,7 +273,6 @@ suite('Unit Tests', () => {
       let change = false 
       let goodTranslation = '<span class="highlight">Tylenol</span> takes up to an hour to work.';
       let testResult = translator.translate(text, locale, change).translation;
-      console.log("testResult:", testResult);
       assert.equal(testResult, goodTranslation);
       done();
     });

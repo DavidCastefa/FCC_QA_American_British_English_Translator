@@ -19,8 +19,6 @@ suite('Functional Tests', () => {
        })
       .end( (err, res) => {
         assert.equal(res.status, 200);
-        console.log("res.body.text: " + res.body.text);
-        console.log("res.body.translation: " + res.body.translation);
         assert.equal(res.body.text, 'I like eggplant.');
         assert.equal(res.body.translation, 'I like <span class="highlight">aubergine</span>.');
       });
@@ -105,8 +103,6 @@ suite('Functional Tests', () => {
        })
       .end(function(err, res){
         assert.equal(res.status, 200);
-        console.log("res.body.text: " + res.body.text);
-        console.log("res.body.translation: " + res.body.translation);
         assert.equal(res.body.text, 'SaintPeter and nhcarrigan give their regards!');
         assert.equal(res.body.translation, 'Everything looks good to me!');
       });
