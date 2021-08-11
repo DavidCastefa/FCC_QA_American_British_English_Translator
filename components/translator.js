@@ -57,9 +57,9 @@ class Translator {
           let nextPunctuation = textArray[i+1].match(/[\w-']+|\W+/g)[1];
           if (word == plainWord.toLowerCase() + ' ' + nextPlainWord.toLowerCase() ) {
             console.log("americanOnly[word]:", americanOnly[word]);
-            textArray[i] = americanOnly[word]
+            textArray[i] = americanOnly[word];
             textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
-            textArray[i] = textArray[i] + (punctuation ? punctuation : "");
+            textArray[i] = textArray[i] + (nextPunctuation ? nextPunctuation : "");
             console.log("British word:" + textArray[i]);
             change = true;
             // Since we've already translated the next word, we need to delete it
@@ -75,9 +75,9 @@ class Translator {
                nextPlainWord.toLowerCase() + ' ' + 
                thirdPlainWord.toLowerCase()  ) {
             console.log("americanOnly[word]:", americanOnly[word]);
-            textArray[i] = americanOnly[word]
+            textArray[i] = americanOnly[word];
             textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
-            textArray[i] = textArray[i] + (punctuation ? punctuation : "");
+            textArray[i] = textArray[i] + (thirdPunctuation ? thirdPunctuation : "");
             console.log("British word:" + textArray[i]);
             change = true;
             // Since we've already translated the third word, we need to delete it also
@@ -104,6 +104,7 @@ class Translator {
         if ( /^\d+:|.\d\d/.test(textArray[i]) ) {
           console.log(textArray[i]);
           textArray[i] = textArray[i].replace(/\./, ':');
+          textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
           console.log("American form: " + textArray[i]);
           change = true;
           continue;  // go back up for the next i
@@ -117,6 +118,7 @@ class Translator {
         Object.keys(americanToBritishTitles).forEach(title => {
           if (title == (plainWord + '.').toLowerCase() ) {
             textArray[i] = plainWord + '.';
+            textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
             console.log("American title:" + textArray[i]);
             change = true;
           }
@@ -125,7 +127,9 @@ class Translator {
         Object.keys(britishOnly).forEach(word => {
           // check for single-word expressions
           if (word == plainWord.toLowerCase()) {
-            textArray[i] = britishOnly[word] + (punctuation ? punctuation : "");
+            textArray[i] = britishOnly[word];
+            textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
+            textArray[i] = textArray[i] + (punctuation ? punctuation : "");
             console.log("American word:" + textArray[i]);
             change = true;
           }
@@ -137,7 +141,9 @@ class Translator {
           let nextPunctuation = textArray[i+1].match(/[\w-']+|\W+/g)[1];
           if (word == plainWord.toLowerCase() + ' ' + nextPlainWord.toLowerCase() ) {
             console.log("britishOnly.word:", britishOnly[word]);
-            textArray[i] = britishOnly[word] + (nextPunctuation ? nextPunctuation : "");
+            textArray[i] = britishOnly[word];
+            textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
+            textArray[i] = textArray[i] + (nextPunctuation ? nextPunctuation : "");
             console.log("British word:" + textArray[i]);
             change = true;
             // Since we've already translated the next word, we need to delete it
@@ -156,7 +162,9 @@ class Translator {
                 nextPlainWord.toLowerCase() + ' ' + 
                 thirdPlainWord.toLowerCase()  ) {
             console.log("britishOnly.word:", britishOnly[word]);
-            textArray[i] = britishOnly[word] + (thirdPunctuation ? thirdPunctuation : "");
+            textArray[i] = britishOnly[word];
+            textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
+            textArray[i] = textArray[i] + (thirdPunctuation ? thirdPunctuation : "");
             console.log("British word:" + textArray[i]);
             change = true;
             // Since we've already translated the third word, we need to delete it also
@@ -166,7 +174,9 @@ class Translator {
 
         Object.keys(americanToBritishSpelling).forEach(word => {
           if (americanToBritishSpelling[word] == plainWord.toLowerCase()) {
-            textArray[i] = word + (punctuation ? punctuation : "");
+            textArray[i] = word;
+            textArray[i] = '<span class="highlight">' + textArray[i] + '</span>';
+            textArray[i] = textArray[i] + (punctuation ? punctuation : "");
             console.log("American spelling:" + textArray[i]);
             change = true;
           }
