@@ -2,4 +2,4 @@ An American-Britsh English Translator app and internal testing using Chai and Mo
 
 The link to the functioning app is [here](https://fcc-qa-american-british-transl.herokuapp.com/).
 
-More infor here: [Quality Assurance Projects - American / British Translator](https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/american-british-translator)
+More info here: [Quality Assurance Projects - American / British Translator](https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/american-british-translator)
